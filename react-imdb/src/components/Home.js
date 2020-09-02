@@ -1,20 +1,32 @@
 import React from 'react';
-import Grid from './elements/Grid';
+import { API_BASE_URL, POSTER_SIZE, BACKDROP_SIZE } from '../config';
+
+// import Components
 import HeroImage from './elements/HeroImage';
-import LoadMoreBtn from './elements/LoadMoreBtn';
-import MovieThumb from './elements/MovieThumb';
 import SearchBar from './elements/SearchBar';
+import Grid from './elements/Grid';
+import MovieThumb from './elements/MovieThumb';
+import LoadMoreBtn from './elements/LoadMoreBtn';
 import Spinner from './elements/Spinner';
 
-const Home = () => (
-	<>
-		<HeroImage />
-		<SearchBar />
-		<Grid />
-		<MovieThumb />
-		<Spinner />
-		<LoadMoreBtn />
-	</>
-);
+// Custom Hook
+import { useHomeFetch } from '../hooks/useHomeFetech';
+
+const Home = () => {
+	const [{ state, loading, error }, fetchMovies] = useHomeFetch();
+
+	console.log(state);
+
+	return (
+		<>
+			<HeroImage />
+			<SearchBar />
+			<Grid />
+			<MovieThumb />
+			<Spinner />
+			<LoadMoreBtn />
+		</>
+	);
+};
 
 export default Home;
