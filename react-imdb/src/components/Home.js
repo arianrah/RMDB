@@ -10,7 +10,7 @@ import LoadMoreBtn from './elements/LoadMoreBtn';
 import Spinner from './elements/Spinner';
 
 // Custom Hook
-import { useHomeFetch } from '../hooks/useHomeFetech';
+import { useHomeFetch } from '../hooks/useHomeFetch';
 
 const Home = () => {
 	const [{ state, loading, error }, fetchMovies] = useHomeFetch();
