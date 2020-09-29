@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { API_URL, API_KEY } from '../config';
+import { SEARCH_POP_URL } from '../config';
 
 export const useHomeFetch = () => {
 	const [state, setState] = useState({ movies: [] });
@@ -33,7 +33,7 @@ export const useHomeFetch = () => {
 
 	// Fetch popular movies initially on mount
 	useEffect(() => {
-		fetchMovies(`${API_URL}movie/popular?api_key=${API_KEY}`);
+		fetchMovies(SEARCH_POP_URL);
 	}, []);
 
 	return [{ state, loading, error }, fetchMovies];
