@@ -16,7 +16,7 @@ const Movie = ({ movieId }) => {
 	// console.log(movie);
 
 	if (error) return <div>Something went wrong...</div>;
-	if (loading) return <Spinner />;
+	if (loading || !movie.original_title) return <Spinner />;
 	return (
 		<>
 			<Navigation movie={movie.original_title} />
