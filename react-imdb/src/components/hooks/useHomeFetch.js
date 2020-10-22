@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { SEARCH_POP_URL } from '../config';
+import { SEARCH_POP_URL } from '../../config';
 
 export const useHomeFetch = () => {
 	const [state, setState] = useState({ movies: [] });
@@ -18,8 +18,8 @@ export const useHomeFetch = () => {
 				...prev,
 				movies:
 					isLoadMore !== -1
-					? [...prev.movies, ...result.results]
-					: [...result.results],
+						? [...prev.movies, ...result.results]
+						: [...result.results],
 				heroImage: prev.heroImage || result.results[0],
 				currentPage: result.page,
 				totalPages: result.total_pages

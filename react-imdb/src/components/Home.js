@@ -19,7 +19,7 @@ import Spinner from './elements/Spinner';
 import NoImage from '../images/no_image.jpg';
 
 // Custom Hook
-import { useHomeFetch } from '../hooks/useHomeFetch';
+import { useHomeFetch } from './hooks/useHomeFetch';
 
 const Home = () => {
 	const [
@@ -37,30 +37,31 @@ const Home = () => {
 
 		setSearchTerm(search);
 
-		fetchMovies(endpoint)
-	}
-	
+		fetchMovies(endpoint);
+	};
+
 	const loadMoreMovies = () => {
-		console.log("loadmoremovies hit")
-		const searchEndpoint = `${SEARCH_BASE_URL}${searchTerm}&page=${currentPage + 1}`
-		const popularEndpoint = `${SEARCH_POP_URL}&page=${currentPage + 1}`
+		console.log('loadmoremovies hit');
+		const searchEndpoint = `${SEARCH_BASE_URL}${searchTerm}&page=${currentPage +
+			1}`;
+		const popularEndpoint = `${SEARCH_POP_URL}&page=${currentPage + 1}`;
 		const endpoint = searchTerm ? searchEndpoint : popularEndpoint;
-		fetchMovies(endpoint)
-	}
+		fetchMovies(endpoint);
+	};
 
 	if (error) return <div>Something went wrong ...</div>;
 	if (!movies[0]) return <Spinner />;
 
 	return (
 		<>
-			{ !searchTerm && (
+			{!searchTerm && (
 				<HeroImage
 					image={`${IMAGE_BASE_URL}${BACKDROP_SIZE}${heroImage.backdrop_path}`}
 					title={heroImage.original_title}
 					text={heroImage.overview}
 				/>
 			)}
-			<SearchBar callback={searchMovies}/>
+			<SearchBar callback={searchMovies} />
 			<Grid header={searchTerm ? 'Search Result' : 'Popular Movies'}>
 				{movies.map(movie => (
 					<MovieThumb
@@ -76,9 +77,9 @@ const Home = () => {
 					/>
 				))}
 			</Grid>
-			{ loading && <Spinner /> }
+			{loading && <Spinner />}
 			{currentPage < totalPages && !loading && (
-				<LoadMoreBtn text="Load More" callback={loadMoreMovies}/>
+				<LoadMoreBtn text="Load More" callback={loadMoreMovies} />
 			)}
 		</>
 	);
