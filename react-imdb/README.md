@@ -7,3 +7,9 @@ react-fa
 styled-components
 
 deployed through netlify.com
+
+Data from TMDB API
+
+![Homepage full resolution](./public/home_full.png?raw=true)
+![Homepage minimum resolution](./public/home_mobile.png?raw=true)
+![Movie detail page](./public/movie_details.png?raw=true)
