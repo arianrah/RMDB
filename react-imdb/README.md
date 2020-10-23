@@ -1,4 +1,4 @@
-[Project Completed] live demo: https://compassionate-lewin-419594.netlify.app
+[Project Completed] live demo: https://lucid-archimedes-341d1f.netlify.app
 
 built with react.js using:
 @reach/router
